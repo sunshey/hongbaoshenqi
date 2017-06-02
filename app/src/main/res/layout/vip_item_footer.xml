@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_10"
+        android:background="@color/ea" />
+
+    <RelativeLayout
+        android:id="@+id/rl_assist_func1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dp_8">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="开启自动抢红包"
+            android:textSize="@dimen/text_16"
+            android:textColor="@color/black"/>
+
+
+        <ImageView
+            android:id="@+id/iv_assist_func1"
+            android:layout_width="41dp"
+            android:layout_height="25dp"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/icon_on" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_1"
+        android:background="@color/ea" />
+
+    <RelativeLayout
+        android:id="@+id/rl_assist_func2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dp_8">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="自动返回聊天页"
+            android:textSize="@dimen/text_16"
+            android:textColor="@color/black"/>
+
+
+        <ImageView
+            android:id="@+id/iv_assist_func2"
+            android:layout_width="41dp"
+            android:layout_height="25dp"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/icon_on" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_1"
+        android:background="@color/ea" />
+
+    <RelativeLayout
+        android:id="@+id/rl_assist_func3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dp_8">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="声音提示"
+            android:textSize="@dimen/text_16"
+            android:textColor="@color/black"/>
+
+
+        <ImageView
+            android:id="@+id/iv_assist_func3"
+            android:layout_width="41dp"
+            android:layout_height="25dp"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/icon_on" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_1"
+        android:background="@color/ea" />
+
+    <RelativeLayout
+        android:id="@+id/rl_assist_func5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dp_8">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="抢自己发的红包"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_16" />
+
+
+        <ImageView
+            android:id="@+id/iv_assist_func5"
+            android:layout_width="41dp"
+            android:layout_height="25dp"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/icon_on" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_10"
+        android:background="@color/ea" />
+
+</LinearLayout>

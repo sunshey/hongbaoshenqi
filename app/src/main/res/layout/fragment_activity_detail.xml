@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/base_dialog_top" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_2"
+        android:background="@color/ea" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dp_10"
+        android:text="1. 活动期间，充值满50元，送50元话费\n
+2. 活动期间，充值满100元，送150元话费\n
+3. 满足条件的用户每个月返还10元话费\n
+4. 当月话费将于次日进行统一返还\n\n
+
+满足条件的用户请在下面输入您需要充值的手机号码，我们会在约定时间给您的手机号码充值话费。"
+        android:textColor="@color/red_less_less"
+        android:textSize="@dimen/text_16" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_2"
+        android:background="@color/ea" />
+
+    <EditText
+        android:id="@+id/et_input_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp_10"
+        android:hint="请输入您需要充值的手机号码"
+        android:inputType="phone"
+        android:maxLength="11"
+        android:textSize="@dimen/text_16" />
+
+    <Button
+        android:id="@+id/btn_submit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp_10"
+        android:background="@drawable/btn_red_bg"
+        android:text="提交"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_20" />
+
+</LinearLayout>

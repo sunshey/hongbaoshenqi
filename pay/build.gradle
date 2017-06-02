@@ -1,0 +1,39 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
+
+    defaultConfig {
+        minSdkVersion 14
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile 'com.kk:securityhttp:1.0.7'
+    compile 'com.android.support:appcompat-v7:25.2.0'
+    compile 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:+'
+    compile files('libs/wftsdk5.0.jar')
+    compile files('libs/XJPay.jar')
+    compile files('libs/alipaySdk-20160825.jar')
+    compile files('libs/ipaynow_base_v2.0.1.jar')
+    compile files('libs/ipaynow_wechatpg_v1.0.4.jar')
+    compile files('libs/ipaynow_wechatwp_v2.0.0.jar')
+    compile files('libs/libsMPPay-XxBeiSDK-1.2.2-release.jar')
+    compile files('libs/libsWXPay-XxBeiSDK-1.0.0-release.jar')
+    compile files('libs/core-3.3.0.jar')
+
+}

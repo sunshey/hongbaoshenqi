@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/base_top" />
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp_10"
+                android:layout_marginLeft="@dimen/dp_5"
+                android:layout_marginTop="@dimen/dp_10"
+                android:text="注：开通VIP后请勿卸载"
+                android:textColor="@color/red_less_less"
+                android:textSize="@dimen/text_14" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/ea"
+                android:padding="@dimen/dp_5"
+                android:text="一，怎么抢红包啊"
+                android:textColor="@color/blue"
+                android:textSize="@dimen/text_16" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dp_5"
+                android:text="这个问题问得好，主界面神器提示“正在抢红包中...”的时候就可以打开微信按Home键切换到后台，然后赶紧喊微信好友快点发红包，见证奇迹的时刻就要来了！"
+                android:textColor="@color/a74"
+                android:textSize="@dimen/text_14" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/ea"
+                android:padding="@dimen/dp_5"
+                android:text="二，发现神器无法抢到红包怎么办"
+                android:textColor="@color/blue"
+                android:textSize="@dimen/text_16" />
+
+            <Button
+                android:id="@+id/btn1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dp_10"
+                android:background="@color/ea"
+                android:gravity="center"
+                android:padding="@dimen/dp_5"
+                android:text="1.查看乐乐红包神器权限是否开启
+辅助功能列表找到乐乐红包神器
+点进去打开禁用按钮
+(猛戳这里)"
+                android:textColor="@color/a74"
+
+                android:textSize="@dimen/text_14" />
+
+            <Button
+                android:id="@+id/btn2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginBottom="@dimen/dp_10"
+                android:layout_marginLeft="@dimen/dp_10"
+                android:layout_marginRight="@dimen/dp_10"
+                android:background="@color/ea"
+                android:gravity="center"
+                android:padding="@dimen/dp_5"
+                android:text="2.查看抢红包开关是否开启
+(猛戳这里)"
+                android:textColor="@color/a74"
+                android:textSize="@dimen/text_14" />
+
+            <Button
+                android:id="@+id/btn3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp_10"
+                android:layout_marginLeft="@dimen/dp_10"
+                android:layout_marginRight="@dimen/dp_10"
+                android:background="@color/ea"
+                android:gravity="center"
+                android:padding="@dimen/dp_5"
+                android:text="3.打开微信进入聊天页
+点开右上角人物头像
+查看消息免打扰开关是否关闭
+需关闭消息免打扰才能自动抢红包"
+                android:textColor="@color/a74"
+
+                android:textSize="@dimen/text_14" />
+
+            <Button
+                android:id="@+id/btn4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginBottom="@dimen/dp_10"
+                android:layout_marginLeft="@dimen/dp_10"
+                android:layout_marginRight="@dimen/dp_10"
+                android:background="@color/ea"
+                android:gravity="center"
+                android:padding="@dimen/dp_5"
+                android:text="4.已开通息屏抢红包功能
+点击查看锁屏是否为
+图案、数字或者密码锁屏
+将锁屏设置为滑动锁屏或者无锁屏"
+                android:textColor="@color/a74"
+
+                android:textSize="@dimen/text_14" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/ea"
+                android:padding="@dimen/dp_5"
+                android:text="三，怎么样提高抢大包概率"
+                android:textColor="@color/blue"
+                android:textSize="@dimen/text_16" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dp_5"
+                android:text="        开启抢大包和手气最佳VIP功能抢到的大包概率最高"
+                android:textColor="@color/a74"
+                android:textSize="@dimen/text_14" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/ea"
+                android:padding="@dimen/dp_5"
+                android:text="四，怎么去掉经常打赏提示和烦人的广告"
+                android:textColor="@color/blue"
+                android:textSize="@dimen/text_16" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dp_5"
+                android:text="        主界面点开VIP功能，点击【永久开启SVIP】,即刻立即拥有去广告，去打赏提示，和VIP全部功能"
+                android:textColor="@color/a74"
+                android:textSize="@dimen/text_14" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/ea"
+                android:padding="@dimen/dp_5"
+                android:text="五，为什么软件自动关闭导致不抢红包"
+                android:textColor="@color/blue"
+                android:textSize="@dimen/text_16" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dp_5"
+                android:text="原因：某些系统内置了省电管理，性能优化清理等，或者你安装了手机管家，手机安全软件，设置了省电管理或者性能优化清理。\n\n
+
+通用解决方案：\n
+ 将乐乐红包神器设置为后台保护（或者白名单等，因手机型号不同而不同），具体操作可百度搜索下“某某手机自动关闭应用软件”\n\n
+
+主流手机解决案例：\n\n
+
+ 【华为】解决方案：\n
+进入手机系统【设置】——【省电管理】——点击【受保护应用】——将【乐乐红包神器】应用开启保护即可\n\n
+
+ 【小米】解决方案：\n
+由于系统版本不同，小米的省电管理，性能优化清理设置比较繁琐，最直接的方法是：长按【Home】——【近期任务列表】——按住【乐乐红包神器】向下滑——【锁定乐乐红包神器】应用不被自动关闭\n\n
+
+ 【魅族】解决方案：\n
+系统内置【安全中心】——【省电模式】——点击最右下方图标按钮——进入【待机耗电管理】——【保持乐乐红包神器运行按钮】"
+                android:textColor="@color/a74"
+                android:textSize="@dimen/text_14" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/ea"
+                android:padding="@dimen/dp_5"
+                android:text="六，免责申明"
+                android:textColor="@color/blue"
+                android:textSize="@dimen/text_16" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dp_5"
+                android:text="本软件仅供娱乐消遣，完全模拟人工操作，抢红包的速度取决于你手机的性能和网络，不涉及任何第三方软件接口，无病毒，不收集用户隐私信息，切勿使用本软件参与赌博活动，一切因使用“乐乐红包神器”造成的任何后果，乐乐红包神器概不负责，亦不承担任何法律责任！"
+                android:textColor="@color/a74"
+                android:textSize="@dimen/text_14" />
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+</LinearLayout>

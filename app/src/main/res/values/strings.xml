@@ -1,0 +1,43 @@
+<resources>
+    <string name="app_name">wxqhb</string>
+    <string name="installation">乐乐红包神器</string>
+    <string name="automatic_installation_assit">乐乐红包神器 ❤❤开启有效❤❤</string>
+    <string name="description">∠( ᐛ 」∠)_使用指南∠( ᐛ 」∠)_\n\n ○ 狠戳插件开关\n ○ 回到微信聊天\n ○ 坐等红包进账\n\n</string>
+    <string name="money">%1$s元</string>
+    <string name="back">返回</string>
+
+
+    <string-array name="lei">
+        <item>选择雷值</item>
+        <item>雷值: 0</item>
+        <item>雷值：1</item>
+        <item>雷值：2</item>
+        <item>雷值：3</item>
+        <item>雷值：4</item>
+        <item>雷值：5</item>
+        <item>雷值：6</item>
+        <item>雷值：7</item>
+        <item>雷值：8</item>
+        <item>雷值：9</item>
+    </string-array>
+    <string-array name="end">
+        <item>选择尾数</item>
+        <item>尾数: 0</item>
+        <item>尾数：1</item>
+        <item>尾数：2</item>
+        <item>尾数：3</item>
+        <item>尾数：4</item>
+        <item>尾数：5</item>
+        <item>尾数：6</item>
+        <item>尾数：7</item>
+        <item>尾数：8</item>
+        <item>尾数：9</item>
+    </string-array>
+    <string-array name="main_function">
+        <item>抢红包加速</item>
+        <item>开通SVIP</item>
+        <item>红包记录</item>
+        <item>红包帮助</item>
+    </string-array>
+
+</resources>

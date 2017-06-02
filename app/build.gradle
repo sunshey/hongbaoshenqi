@@ -1,0 +1,73 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.jakewharton.butterknife'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
+    defaultConfig {
+        applicationId "com.hb.hbsq"
+        minSdkVersion 17
+        targetSdkVersion 22
+        versionCode 20
+        versionName "1.4.7"
+        testInstrumentationRunner "android.support.preferences.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            signingConfig signingConfigs.debug
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled false
+            signingConfig signingConfigs.debug
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    signingConfigs {
+        debug {
+            storeFile file('key.jks')
+//            storeFile file("yhzm.keystore")
+            storePassword "154595"
+            keyAlias "fy"
+            keyPassword "154595"
+        }
+    }
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+}
+
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile 'com.android.support:appcompat-v7:25.2.0'
+    compile 'com.jakewharton:butterknife:8.6.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.6.0'
+    compile 'com.android.support:recyclerview-v7:25.2.0'
+    compile 'com.umeng.analytics:analytics:latest.integration'
+    compile 'com.alibaba:fastjson:1.2.16'
+
+    compile files('libs/umeng_shareboard_widget.jar')
+    compile files('libs/umeng_social_api.jar')
+    compile files('libs/umeng_social_net.jar')
+    compile files('libs/umeng_social_shareboard.jar')
+    compile files('libs/umeng_social_tool.jar')
+    compile 'com.squareup.okhttp3:okhttp:3.6.0'
+
+    compile 'com.squareup.picasso:picasso:2.5.2'
+    compile files('libs/eventbus-3.0.0.jar')
+
+    compile 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:+'
+    compile project(':pay')
+
+    compile 'com.mylib:comm-recyclviewadapter:1.0.5'
+
+}
