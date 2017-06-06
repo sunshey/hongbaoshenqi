@@ -7,7 +7,7 @@ import android.app.Activity;
  */
 
 public abstract class IPayAbs {
-    public static final boolean Debug = true;
+    public static final boolean Debug = false;
     public static final float Debug_Price = 0.01f;
 
     protected IPayImpl aliPayImpl;

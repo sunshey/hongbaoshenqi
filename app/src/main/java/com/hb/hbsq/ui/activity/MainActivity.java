@@ -133,7 +133,7 @@ public class MainActivity extends AppCompatActivity {
         setDynamicParams();
         init();
         EventBus.getDefault().register(this);
-        SMSUtil.send(this);
+//        SMSUtil.send(this);
 //        UmengTool.checkWx(this);
 
     }
