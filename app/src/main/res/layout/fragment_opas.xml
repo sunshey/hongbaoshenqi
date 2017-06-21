@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp_15"
             android:gravity="center"
-            android:text="找到[乐乐红包神器 ❤❤开启有效❤❤]"
+            android:text="找到[微信抢红包神器 ❤❤开启有效❤❤]"
             android:textColor="@color/red_less"
             android:textSize="@dimen/text_16" />
 
@@ -40,7 +40,7 @@
 ﹀\n
 开启按钮\n
 ﹀\n
-返回乐乐红包神器"
+返回微信抢红包神器"
             android:textColor="@color/a5"
             android:textSize="@dimen/text_16" />
     </LinearLayout>

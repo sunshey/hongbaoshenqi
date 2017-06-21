@@ -27,5 +27,9 @@
 
     <color name="black">#333333</color>
 
+    <color name="red_d96b68">#D96B68</color>
+    <color name="orange_feddae">#FEDDAE</color>
+    <color name="yellow_ffe2b1">#ffffe2b1</color>
+
 
 </resources>

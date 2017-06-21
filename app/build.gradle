@@ -5,11 +5,11 @@ android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
     defaultConfig {
-        applicationId "com.hb.hbsq"
+        applicationId "com.dd.ddsq"
         minSdkVersion 17
         targetSdkVersion 22
-        versionCode 21
-        versionName "1.4.8"
+        versionCode 24
+        versionName "1.5.2"
         testInstrumentationRunner "android.support.preferences.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -68,6 +68,6 @@ dependencies {
     compile 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:+'
     compile project(':pay')
 
-    compile 'com.mylib:comm-recyclviewadapter:1.0.5'
+    compile 'com.mylib:comm-recyclviewadapter:1.0.9'
 
 }

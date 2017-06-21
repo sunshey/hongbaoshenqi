@@ -1,214 +1,214 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/dialog_every_hb_bg"
-    android:orientation="vertical">
+    android:layout_height="wrap_content">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/gethbao_ing_bg"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/dp_20"
+        android:layout_marginRight="@dimen/dp_20"
+        android:background="@drawable/dialog_every_hb_bg"
         android:orientation="vertical">
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="@dimen/dp_10">
+            android:background="@drawable/gethbao_ing_bg"
+            android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
+            <RelativeLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:text="我要打赏"
-                android:textColor="@color/orange_less"
-                android:textSize="@dimen/text_16" />
+                android:padding="@dimen/dp_10">
 
-            <ImageView
-                android:id="@+id/iv_close"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_alignParentRight="true"
-                android:src="@drawable/delete"
-                android:tint="@color/a74" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="我要打赏"
+                    android:textColor="@color/yellow_ffe2b1"
+                    android:textSize="@dimen/text_18" />
 
-        </RelativeLayout>
+                <ImageView
+                    android:id="@+id/iv_close"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/delete"
+                    android:tint="@color/a74" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:gravity="center"
+                    android:lineSpacingExtra="@dimen/dp_5"
+                    android:text="非常感谢您能使用我们的产品\n您的打赏是我们前进的动力！"
+                    android:textColor="@color/yellow_ffe2b1"
+                    android:textSize="@dimen/text_16" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_10" />
+
+                <TextView
+                    android:id="@+id/tv_exceptional"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/icon_reward"
+                    android:gravity="center"
+                    android:text="赏"
+                    android:textColor="#ff3b3b3b"
+                    android:textSize="@dimen/text_25"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="@dimen/dp_10"
-                android:gravity="center"
-                android:text="非常感谢您能使用我们的产品\n
-您的打赏是我们前进的动力！"
-                android:textColor="@color/orange_less"
-                android:textSize="@dimen/text_16" />
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_marginBottom="@dimen/dp_2"
+                    android:layout_marginRight="@dimen/dp_5"
+                    android:text="¥"
+                    android:textColor="@color/yellow_ffe2b1"
+                    android:textSize="@dimen/text_30" />
+
+                <TextView
+                    android:id="@+id/tv_money"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="8.88"
+                    android:textColor="@color/yellow_ffe2b1"
+                    android:textSize="@dimen/text_50" />
+
+
+                <Button
+                    android:id="@+id/btn_exceptional"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="bottom"
+                    android:layout_marginBottom="@dimen/dp_2"
+                    android:layout_marginLeft="@dimen/dp_5"
+                    android:background="@drawable/icon_money" />
+            </LinearLayout>
 
             <TextView
-                android:id="@+id/tv_exceptional"
-                android:layout_width="72dp"
-                android:layout_height="72dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="@dimen/dp_15"
-                android:background="@drawable/icon_reward"
-                android:gravity="center"
-                android:text="赏"
-                android:textSize="@dimen/text_25" />
-        </LinearLayout>
-    </LinearLayout>
+                android:id="@+id/tv_random_money"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/exception_selector"
+                android:paddingBottom="@dimen/dp_5"
+                android:paddingLeft="@dimen/dp_10"
+                android:paddingRight="@dimen/dp_10"
+                android:paddingTop="@dimen/dp_5"
+                android:text="随机金额"
+                android:textColor="@color/tv_color_selector"
+                android:textSize="@dimen/text_14" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_exceptional"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_30"
+            android:layout_marginRight="@dimen/dp_30"
+            android:layout_marginTop="@dimen/dp_10"
+            android:background="@drawable/exception_normal_bg"
+            android:padding="@dimen/dp_10"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="打赏TA"
+                android:textColor="@color/orange_fddbac"
+                android:textSize="@dimen/text_14" />
+
+            <TextView
+                android:id="@+id/tv_yuan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="元"
+                android:textColor="@color/orange_fddbac"
+                android:textSize="@dimen/text_14" />
+
+            <EditText
+                android:id="@+id/et_exceptional_money"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/dp_5"
+                android:layout_toLeftOf="@id/tv_yuan"
+                android:background="@null"
+                android:gravity="right"
+                android:hint="请输入1-888元金额"
+                android:inputType="number"
+                android:maxLength="3"
+                android:textColor="@color/orange_fddbac"
+                android:textColorHint="@color/orange_fddbac"
+                android:textSize="@dimen/text_14" />
+
+        </RelativeLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:layout_marginBottom="@dimen/dp_2"
-                android:layout_marginRight="@dimen/dp_5"
-                android:text="¥"
-                android:textColor="@color/orange_less"
-                android:textSize="@dimen/text_25" />
-
-            <TextView
-                android:id="@+id/tv_money"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="8.88"
-                android:textColor="@color/orange_less"
-                android:textSize="@dimen/text_40" />
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/dp_20"
+            android:paddingLeft="@dimen/dp_40"
+            android:paddingRight="@dimen/dp_40"
+            android:paddingTop="@dimen/dp_20">
 
 
             <Button
-                android:id="@+id/btn_exceptional"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_gravity="bottom"
-                android:layout_marginBottom="@dimen/dp_2"
-                android:layout_marginLeft="@dimen/dp_5"
-                android:background="@drawable/icon_money" />
+                android:id="@+id/btn_alipay"
+                style="@style/common_btn"
+                android:background="@drawable/alipay_bg"
+                android:text="支付宝打赏"
+                android:visibility="gone" />
+
+
+            <Button
+                android:id="@+id/btn_wxpay"
+                style="@style/common_btn"
+                android:background="@drawable/wx_bg"
+                android:text="微信打赏"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/btn_pay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp_20"
+                android:layout_marginTop="@dimen/dp_10"
+                android:background="@drawable/wx_bg"
+                android:text="确认打赏"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_14"
+                android:visibility="gone" />
         </LinearLayout>
-
-        <TextView
-            android:id="@+id/tv_random_money"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:background="@drawable/exception_selector"
-            android:paddingBottom="@dimen/dp_5"
-            android:paddingLeft="@dimen/dp_10"
-            android:paddingRight="@dimen/dp_10"
-            android:paddingTop="@dimen/dp_5"
-            android:text="随机金额"
-            android:textColor="@color/tv_color_selector"
-            android:textSize="@dimen/text_14" />
-
     </LinearLayout>
-
-    <RelativeLayout
-        android:id="@+id/rl_exceptional"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/dp_30"
-        android:layout_marginRight="@dimen/dp_30"
-        android:layout_marginTop="@dimen/dp_10"
-        android:background="@drawable/exception_normal_bg"
-        android:padding="@dimen/dp_10"
-        android:visibility="gone">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="打赏TA"
-            android:textColor="@color/orange_fddbac"
-            android:textSize="@dimen/text_14" />
-
-        <TextView
-            android:id="@+id/tv_yuan"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:text="元"
-            android:textColor="@color/orange_fddbac"
-            android:textSize="@dimen/text_14" />
-
-        <EditText
-            android:id="@+id/et_exceptional_money"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="@dimen/dp_5"
-            android:layout_toLeftOf="@id/tv_yuan"
-            android:background="@null"
-            android:gravity="right"
-            android:hint="请输入1-888元金额"
-            android:inputType="number"
-            android:maxLength="3"
-            android:textColor="@color/orange_fddbac"
-            android:textColorHint="@color/orange_fddbac"
-            android:textSize="@dimen/text_14" />
-
-    </RelativeLayout>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingBottom="@dimen/dp_20"
-        android:paddingLeft="@dimen/dp_40"
-        android:paddingRight="@dimen/dp_40"
-        android:paddingTop="@dimen/dp_20">
-
-
-        <Button
-            android:id="@+id/btn_alipay"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp_10"
-            android:background="@drawable/alipay_bg"
-            android:drawableEnd="@drawable/recommend"
-            android:gravity="right|center"
-            android:text="支付宝打赏"
-            android:textColor="@color/white"
-            android:textSize="@dimen/text_16"
-            android:visibility="gone" />
-
-
-        <Button
-            android:id="@+id/btn_wxpay"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp_10"
-            android:background="@drawable/wx_bg"
-            android:text="微信打赏"
-            android:textColor="@color/white"
-            android:textSize="@dimen/text_16"
-            android:visibility="gone" />
-
-        <Button
-            android:id="@+id/btn_pay"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/dp_20"
-            android:layout_marginTop="@dimen/dp_10"
-            android:background="@drawable/wx_bg"
-            android:text="确认打赏"
-            android:textColor="@color/white"
-            android:textSize="@dimen/text_16"
-            android:visibility="gone" />
-    </LinearLayout>
-
 </LinearLayout>

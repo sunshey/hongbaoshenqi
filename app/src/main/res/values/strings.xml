@@ -1,11 +1,14 @@
 <resources>
     <string name="app_name">wxqhb</string>
-    <string name="installation">乐乐红包神器</string>
-    <string name="automatic_installation_assit">乐乐红包神器 ❤❤开启有效❤❤</string>
+    <string name="installation">微信抢红包神器</string>
+
+    <string name="automatic_installation_assit">微信抢红包神器 ❤❤开启有效❤❤</string>
     <string name="description">∠( ᐛ 」∠)_使用指南∠( ᐛ 」∠)_\n\n ○ 狠戳插件开关\n ○ 回到微信聊天\n ○ 坐等红包进账\n\n</string>
     <string name="money">%1$s元</string>
+    <string name="discount_money">%1$.1f元</string>
+    <string name="discount">(%1$.1f折)</string>
+    <string name="alipay">支付宝支付(%1$.1f折)¥%2$s</string>
     <string name="back">返回</string>
-
 
     <string-array name="lei">
         <item>选择雷值</item>
@@ -38,6 +41,17 @@
         <item>开通SVIP</item>
         <item>红包记录</item>
         <item>红包帮助</item>
+    </string-array>
+
+    <string-array name="detail_function">
+        <item>加速抢</item>
+        <item>尾数控制</item>
+        <item>扫雷</item>
+        <item>永久SVIP</item>
+        <item>手气最佳</item>
+        <item>躲避小包</item>
+        <item> 抢大包</item>
+        <item>更多VIP</item>
     </string-array>
 
 </resources>

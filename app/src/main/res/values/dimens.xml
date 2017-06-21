@@ -19,4 +19,6 @@
     <dimen name="dp_40">40dp</dimen>
     <dimen name="dp_8">8dp</dimen>
     <dimen name="dp_50">50dp</dimen>
+    <dimen name="text_50">50sp</dimen>
+    <dimen name="text_30">30sp</dimen>
 </resources>

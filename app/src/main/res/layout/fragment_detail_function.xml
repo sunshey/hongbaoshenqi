@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_20"
+        android:layout_marginRight="@dimen/dp_20"
+        android:background="@drawable/dialog_every_hb_bg"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:background="@drawable/gethbao_ing_bg"
+            android:padding="@dimen/dp_10">
+
+            <TextView
+                android:id="@+id/tv_function"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="开通手气最佳功能"
+                android:textColor="@color/orange_feddae"
+                android:textSize="@dimen/text_18" />
+
+            <ImageView
+                android:id="@+id/iv_close_function"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/delete"
+                android:tint="@color/a74" />
+
+            <TextView
+                android:id="@+id/tv_detatil_introduce"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_function"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/dp_20"
+                android:gravity="center"
+                android:lineSpacingExtra="@dimen/dp_2"
+                android:text="系统将通过数据运算和分析\n
+帮助您提高抢到手气最佳包的概率"
+                android:textColor="@color/orange_feddae"
+                android:textSize="@dimen/text_16" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:gravity="bottom"
+                android:text="¥"
+                android:textColor="@color/orange_feddae"
+                android:textSize="@dimen/text_14" />
+
+            <TextView
+                android:id="@+id/tv_detail_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="@dimen/dp_5"
+                android:text="56.8"
+                android:textColor="@color/orange_feddae"
+                android:textSize="@dimen/text_18" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/dp_20"
+            android:paddingLeft="@dimen/dp_50"
+            android:paddingRight="@dimen/dp_50"
+            android:paddingTop="@dimen/dp_10">
+
+            <Button
+                android:id="@+id/btn_alipay"
+                style="@style/common_btn"
+                android:background="@drawable/alipay_bg"
+                android:text="支付宝支付（7.8折）" />
+
+            <Button
+                android:id="@+id/btn_wxpay"
+                style="@style/common_btn"
+                android:background="@drawable/wx_bg_enable"
+                android:text="微信支付" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
