@@ -9,5 +9,5 @@ import java.io.File;
 public interface OnUpdateListener {
     void onSuccess(File file);
 
-    void onFailue();
+    void onFailure();
 }

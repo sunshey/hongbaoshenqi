@@ -7,6 +7,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AlertDialog;
 
+
 import com.dd.ddsq.listener.OnUpdateListener;
 
 import java.io.File;
@@ -40,6 +41,9 @@ public class AppUpdateManager {
 //        progressDialog.setCanceledOnTouchOutside(false);
 //        progressDialog.setCancelable(false);
 //        progressDialog.setMax(100);
+
+
+
         LogUtil.msg("url:  " + url);
         final Handler mhandler = new Handler() {
 
@@ -49,14 +53,13 @@ public class AppUpdateManager {
                 switch (msg.what) {
                     case DOWNLOAD_SUCCESS:
                         File file = (File) msg.obj;
-
                         listener.onSuccess(file);
 //                        progressDialog.dismiss();
 
                         break;
                     case DOWNLOAD_ERROR:
                     case DOWNLOAD_FAIL:
-                        listener.onFailue();
+                        listener.onFailure();
                         break;
                 }
             }
@@ -93,9 +96,11 @@ public class AppUpdateManager {
                             while ((len = is.read(buf)) != -1) {
                                 total_length += len;
                                 int value = (int) ((total_length / (float) file_length) * 100);
+
 //                                progressDialog.setProgress(value);
                                 fos.write(buf, 0, len);
                             }
+
                             fos.flush();
                             mhandler.obtainMessage(DOWNLOAD_SUCCESS, file).sendToTarget();
                             //如果下载文件成功，第一个参数为文件的绝对路径

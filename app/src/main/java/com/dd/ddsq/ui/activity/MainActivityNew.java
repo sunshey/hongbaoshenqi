@@ -41,6 +41,7 @@ import com.dd.ddsq.service.HbService;
 import com.dd.ddsq.ui.fragment.dialog.ExceptionalFragment;
 import com.dd.ddsq.ui.fragment.dialog.OpAsFragment;
 import com.dd.ddsq.ui.fragment.dialog.TwoButtonDialog;
+import com.dd.ddsq.util.AppNotificationDownload;
 import com.dd.ddsq.util.AppUpdateManager;
 import com.dd.ddsq.util.Encrypt;
 import com.dd.ddsq.util.LogUtil;
@@ -124,6 +125,7 @@ public class MainActivityNew extends BaseActivity {
     protected void initData() {
         checkNet();
         checkVersionUpdate();
+
         setDynamicParams();
         init();
         EventBus.getDefault().register(this);
@@ -191,7 +193,7 @@ public class MainActivityNew extends BaseActivity {
         ToastUtil.showToast(this, _isVisable ? "抢红包服务已关闭!" : "抢红包服务已打开", Toast.LENGTH_SHORT);
         tvState.setText(_isVisable ? "抢红包服务已暂停" : "正在抢红包中....");
         NotificationManager nm = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-        Notification notification = createNotification(_isVisable ? "抢红包服务已关闭" : "正在抢红包中", _isVisable ? "<<<点击打开>>" : "<<<点击关闭>>", !_isVisable);
+        Notification notification = createNotification(_isVisable ? "抢红包服务已关闭" : "正在抢红包中", _isVisable ? "<<<点击打开>>>" : "<<<点击关闭>>>", !_isVisable);
         nm.notify(1, notification);
         HbService.startForeground(notification);
         isVisable = !_isVisable;
@@ -443,7 +445,7 @@ public class MainActivityNew extends BaseActivity {
             File file = new File(dir, AppUpdateManager.getAPPName(GoagalInfo.loginDataInfo.getUpdateInfo().getUrl()));
             if (file.exists()) {
                 PackageManager packageManager = getPackageManager();
-                PackageInfo packageInfo = packageManager.getPackageArchiveInfo(file.getAbsolutePath(), 0);
+                PackageInfo packageInfo = packageManager.getPackageArchiveInfo(file.getAbsolutePath(), PackageManager.GET_ACTIVITIES);
 
                 if (packageInfo != null && packageInfo.versionCode < GoagalInfo.loginDataInfo.getUpdateInfo().getCode()) {
                     update(dir);
@@ -455,6 +457,7 @@ public class MainActivityNew extends BaseActivity {
 
             } else {
                 update(dir);
+//                AppNotificationDownload.checkUpdate(this, GoagalInfo.loginDataInfo.getUpdateInfo().getUrl(), dir);
             }
         }
     }
@@ -469,7 +472,7 @@ public class MainActivityNew extends BaseActivity {
             }
 
             @Override
-            public void onFailue() {
+            public void onFailure() {
 
             }
         });
@@ -478,7 +481,7 @@ public class MainActivityNew extends BaseActivity {
     private boolean isNewVersion(File file) {
         PackageManager packageManager = getPackageManager();
 
-        PackageInfo packageInfo = packageManager.getPackageArchiveInfo(file.getAbsolutePath(), 0);
+        PackageInfo packageInfo = packageManager.getPackageArchiveInfo(file.getAbsolutePath(), PackageManager.GET_ACTIVITIES);
 
         if (packageInfo == null || GoagalInfo.packageInfo == null) {
             return false;

@@ -29,6 +29,10 @@ public abstract class BaseActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getResourseLayout());
+//        getWindow().getDecorView().setSystemUiVisibility(
+//                View.SYSTEM_UI_FLAG_FULLSCREEN
+//                        | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+//                        | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
         ButterKnife.bind(this);
         init();
     }
@@ -69,6 +73,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
 
         window.setStatusBarColor(getResources().getColor(R.color.red_ee2715));
+
 
     }
 

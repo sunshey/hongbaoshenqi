@@ -78,6 +78,4 @@ public class IWXH5PayImpl extends IPayImpl {
     }
 
 
-
-
 }

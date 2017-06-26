@@ -13,6 +13,8 @@ import android.os.SystemClock;
 import android.util.AttributeSet;
 import android.view.View;
 
+import com.dd.ddsq.util.LogUtil;
+
 /**
  * Created by admin on 2017/2/24.
  */
@@ -56,13 +58,16 @@ public class CircleScanView extends View {
         mPaint2 = new Paint();
         mPaint2.setStyle(Paint.Style.FILL);
         mPaint2.setColor(Color.parseColor("#00ff00"));
+
     }
 
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
         mWidth = getWidth();
+
         mHeight = getHeight();
+        LogUtil.msg("mWidth  " + mWidth + "  mHeight" + mHeight);
         mRectF = new RectF((float) (mWidth * 0.1), (float) (mWidth * 0.1),
                 (float) (mWidth * 0.9), (float) (mWidth * 0.9));
         // 绘制渐变效果
@@ -74,7 +79,9 @@ public class CircleScanView extends View {
                 Color.parseColor("#FC836A"), Color.parseColor("#FD907B"),
                 Color.parseColor("#FDA596"), Color.parseColor("#F9BAA4"), Color.parseColor("#EDBBB5")}, null,
                 Shader.TileMode.CLAMP);
+
         mPaint2.setShader(gradient);
+
 
         // 圆的半径
         radius = (float) (mWidth * 0.4);
@@ -90,6 +97,8 @@ public class CircleScanView extends View {
 
     // 绘制圆
     private void canvasCircle(Canvas canvas) {
+
+
         canvas.drawCircle(mWidth / 2, mHeight / 2, radius, mPaint);
 
     }
@@ -97,7 +106,8 @@ public class CircleScanView extends View {
 
     // 绘制旋转的扇形
     private void canvasArc(Canvas canvas) {
-        canvas.drawArc(mRectF, startAngle, 60, true, mPaint2);
+        canvas.drawArc(mRectF, 0, startAngle, true, mPaint2);
+
     }
 
     /**
@@ -105,14 +115,14 @@ public class CircleScanView extends View {
      *
      * @author Administrator
      */
-    class MyThread extends Thread {
+    private class MyThread extends Thread {
 
         @Override
         public void run() {
 
             while (true) {
                 if (running) {
-                    SystemClock.sleep(8);
+                    SystemClock.sleep(10);
                     handler.sendEmptyMessage(START);
                 } else {
                     break;
@@ -121,6 +131,7 @@ public class CircleScanView extends View {
 
         }
     }
+
     private boolean running = true;
 
     private Handler handler = new Handler() {
@@ -128,12 +139,11 @@ public class CircleScanView extends View {
             synchronized (this) {
                 switch (msg.what) {
                     case START:
-                        if (startAngle > 360) {
+                        startAngle++;
+                        if (startAngle == 360) {
                             startAngle = 0;
-                        } else {
-                            startAngle++;
-                            invalidate();
                         }
+                        invalidate();
                         break;
                 }
 
