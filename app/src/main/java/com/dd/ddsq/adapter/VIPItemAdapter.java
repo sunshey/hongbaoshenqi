@@ -460,6 +460,7 @@ public class VIPItemAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
             ft.add(openVIPFragment, null);
         }
         ft.commitAllowingStateLoss();
+
 //        openVIPFragment.show(mContext.getSupportFragmentManager(), null);
 
         final OrderParamsInfo orderParamsInfo = getOrderParamsInfo(vipItemInfo);
@@ -467,6 +468,7 @@ public class VIPItemAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
             @Override
             public void onPayAli(IPayAbs iPayAbs, String payway, String nowway_type) {
                 orderParamsInfo.setPayway_name(payway);
+                orderParamsInfo.setPrice(Float.parseFloat(vipItemInfo.getReal_price()));
                 iPayAbs.alipay(orderParamsInfo, new ICallBack(vipItemInfo));
 
             }
@@ -474,11 +476,13 @@ public class VIPItemAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
             @Override
             public void onPayWX(IPayAbs iPayAbs, String payway, String nowway_type) {
                 orderParamsInfo.setPayway_name(payway);
+                orderParamsInfo.setPrice(Float.parseFloat(vipItemInfo.getPrice()));
                 iPayAbs.wxpay(orderParamsInfo, new ICallBack(vipItemInfo));
 
             }
 
         });
+
     }
 
     private class ICallBack implements IPayCallback {
@@ -503,7 +507,7 @@ public class VIPItemAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
 
     private OrderParamsInfo getOrderParamsInfo(VipItemInfo vipItemInfo) {
-        OrderParamsInfo orderParamsInfo = new OrderParamsInfo(APPConfig.PAY_URL, vipItemInfo.getId(), PayConfig.PAY_TYPE_CONSUME + "", Float.parseFloat(vipItemInfo.getReal_price()));
+        OrderParamsInfo orderParamsInfo = new OrderParamsInfo(APPConfig.PAY_URL, vipItemInfo.getId(), PayConfig.PAY_TYPE_CONSUME + "");
         String json = SPUtils.getString(mContext, SPConstant.GOAGAL_INFO_KEY);
         LoginDataInfo info = JSON.parseObject(Encrypt.decode(json), LoginDataInfo.class);
         if (GoagalInfo.loginDataInfo == null) {

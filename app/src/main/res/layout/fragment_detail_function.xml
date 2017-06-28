@@ -24,7 +24,7 @@
                 android:layout_centerHorizontal="true"
                 android:text="开通手气最佳功能"
                 android:textColor="@color/orange_feddae"
-                android:textSize="@dimen/text_18" />
+                android:textSize="@dimen/text_16" />
 
             <ImageView
                 android:id="@+id/iv_close_function"
@@ -46,20 +46,21 @@
                 android:text="系统将通过数据运算和分析\n
 帮助您提高抢到手气最佳包的概率"
                 android:textColor="@color/orange_feddae"
-                android:textSize="@dimen/text_16" />
+                android:textSize="@dimen/text_14" />
 
         </RelativeLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal">
+            android:gravity="center">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_horizontal"
                 android:gravity="bottom"
+                android:layout_marginBottom="@dimen/dp_1"
                 android:text="¥"
                 android:textColor="@color/orange_feddae"
                 android:textSize="@dimen/text_14" />
@@ -93,7 +94,7 @@
             <Button
                 android:id="@+id/btn_wxpay"
                 style="@style/common_btn"
-                android:background="@drawable/wx_bg_enable"
+                android:background="@drawable/wx_bg"
                 android:text="微信支付" />
         </LinearLayout>
     </LinearLayout>

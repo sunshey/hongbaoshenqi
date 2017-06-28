@@ -7,6 +7,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.dd.ddsq.bean.PayWayInfo;
 import com.dd.ddsq.bean.PaywayListInfo;
+import com.dd.ddsq.config.PayConfig;
 import com.dd.ddsq.config.SPConstant;
 import com.dd.ddsq.engine.PaywayListEngin;
 import com.dd.ddsq.util.Encrypt;
@@ -68,7 +69,7 @@ public abstract class BasePayDialogFragment extends BaseDialogFragment {
                 }
             }
 //            lastPayInfoList.clear();
-//            lastPayInfoList.add(new PayWayInfo(PayConfig.PAY_WAY_WXPAY, "微信支付"));
+//            lastPayInfoList.add(new PayWayInfo(PayConfig.PAY_WAY_SPWXPAY, "微信支付"));
 //            lastPayInfoList.add(new PayWayInfo(PayConfig.PAY_WAY_WXPAY, "微信支付"));
 //            lastPayInfoList.add(new PayWayInfo(PayConfig.PAY_WAY_XXPAY, "微信支付"));
 //            lastPayInfoList.add(new PayWayInfo(PayConfig.PAY_WAY_NOWPAY_WX, "微信支付"));

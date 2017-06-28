@@ -53,6 +53,10 @@ public class PayInfo {
     private String key;
     private String return_url;
 
+    //扬扬zhif
+    private String callback_url;
+
+
     public String getIp() {
         return ip;
     }
@@ -253,5 +257,13 @@ public class PayInfo {
 
     public void setChannelId(String channelId) {
         this.channelId = channelId;
+    }
+
+    public String getCallback_url() {
+        return callback_url;
+    }
+
+    public void setCallback_url(String callback_url) {
+        this.callback_url = callback_url;
     }
 }

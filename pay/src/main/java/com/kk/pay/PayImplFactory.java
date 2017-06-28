@@ -28,6 +28,8 @@ public class PayImplFactory {
             iPayImpl = new IWXH5PayImpl(context);
         } else if ("xxpay".equals(name)) {
             iPayImpl = new IXxPay2Impl(context);
+        } else if ("spwxpay".equals(name)) {
+            iPayImpl = new IShiftPassPayImpl(context);
         }
 
         return iPayImpl;

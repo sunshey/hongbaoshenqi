@@ -230,6 +230,8 @@ public class MainActivity extends AppCompatActivity {
         if (isFirst)
             getData();
 
+
+
         if (IPayImpl.uiPayCallback != null && IPayImpl.uOrderInfo != null && IPayImpl.isGen()) {
             IPayImpl.checkOrder(IPayImpl.uOrderInfo, IPayImpl.uiPayCallback);
         }

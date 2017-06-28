@@ -17,7 +17,7 @@ public class OrderParamsInfo {
 
     private String md5signstr = ""; //现代支付 md5校验值
 
-    private float price = 0f;
+    private float price = 0f;//分两种  支付宝打折价 real_price 微信不打折 price
     private String name = "";
     private String uid;
 
@@ -28,6 +28,14 @@ public class OrderParamsInfo {
         this.price = price;
 
     }
+
+    public OrderParamsInfo(String pay_url, String goods_id, String type) {
+        this.pay_url = pay_url;
+        this.goods_id = goods_id;
+        this.type = type;
+
+    }
+
 
     public String getUid() {
         return uid;
@@ -117,7 +125,7 @@ public class OrderParamsInfo {
         params.put("payway_name", this.getPayway_name());
 //        params.put("money", this.getPrice() + "");
         params.put("type", this.getType());
-       params.put("user_id",this.getUid());
+        params.put("user_id", this.getUid());
         if (md5signstr != null && !md5signstr.isEmpty() && !md5signstr.equalsIgnoreCase("null")) {
             params.put("md5signstr", this.getMd5signstr());
         }

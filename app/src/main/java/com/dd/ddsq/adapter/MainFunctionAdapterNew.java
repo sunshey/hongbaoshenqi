@@ -257,16 +257,20 @@ public class MainFunctionAdapterNew extends BaseAdapter<String> {
             }
 
             final OrderParamsInfo orderParamsInfo = getOrderParamsInfo(vipItemInfo);
+            final VipItemInfo finalVipItemInfo = vipItemInfo;
+
             detailFunctionFragment.setListener(new onPayListener() {
                 @Override
                 public void onPayAli(IPayAbs iPayAbs, String payway, String nowway_type) {
                     orderParamsInfo.setPayway_name(payway);
+                    orderParamsInfo.setPrice(Float.parseFloat(finalVipItemInfo.getReal_price()));
                     iPayAbs.alipay(orderParamsInfo, new ICallBack());
                 }
 
                 @Override
                 public void onPayWX(IPayAbs iPayAbs, String payway, String nowway_type) {
                     orderParamsInfo.setPayway_name(payway);
+                    orderParamsInfo.setPrice(Float.parseFloat(finalVipItemInfo.getPrice()));
                     iPayAbs.wxpay(orderParamsInfo, new ICallBack());
                 }
             });
@@ -318,7 +322,7 @@ public class MainFunctionAdapterNew extends BaseAdapter<String> {
     }
 
     private OrderParamsInfo getOrderParamsInfo(VipItemInfo vipItemInfo) {
-        OrderParamsInfo orderParamsInfo = new OrderParamsInfo(APPConfig.PAY_URL, vipItemInfo.getId(), PayConfig.PAY_TYPE_CONSUME + "", Float.parseFloat(vipItemInfo.getReal_price()));
+        OrderParamsInfo orderParamsInfo = new OrderParamsInfo(APPConfig.PAY_URL, vipItemInfo.getId(), PayConfig.PAY_TYPE_CONSUME + "");
         String json = SPUtils.getString(mContext, SPConstant.GOAGAL_INFO_KEY);
         LoginDataInfo info = JSON.parseObject(Encrypt.decode(json), LoginDataInfo.class);
         if (GoagalInfo.loginDataInfo == null) {

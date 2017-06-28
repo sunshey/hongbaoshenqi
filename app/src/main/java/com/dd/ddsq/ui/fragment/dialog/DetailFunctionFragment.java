@@ -3,6 +3,7 @@ package com.dd.ddsq.ui.fragment.dialog;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -39,22 +40,17 @@ public class DetailFunctionFragment extends BasePayDialogFragment {
 
     @BindView(R.id.tv_function)
     TextView tvFunction;
-    @BindView(R.id.iv_close_function)
-    ImageView ivCloseFunction;
     @BindView(R.id.btn_alipay)
     Button btnAlipay;
     @BindView(R.id.tv_detatil_introduce)
     TextView tvDetatilIntroduce;
     @BindView(R.id.tv_detail_price)
     TextView tvDetailPrice;
+    @BindView(R.id.btn_wxpay)
+    Button btnWxpay;
 
 
     private VipItemInfo vipItemInfo;
-
-    private int pay_way = 1;//选择支付方式
-    private static final int ALI_PAY = 1;//支付宝支付
-    private static final int WX_PAY = 2;//微信支付
-
 
     private String wx_pay = PayConfig.PAY_WAY_NOWPAY_WX;
     private String ali_pay = PayConfig.PAY_WAY_ALIPAY;
@@ -63,6 +59,8 @@ public class DetailFunctionFragment extends BasePayDialogFragment {
     private String ali_nowway_type = PayConfig.NOWPAY_ALI;
 
     private IPayAbs iPayAbs;
+
+    private boolean isWxPay = false;
 
     @Override
     protected int getLayoutId() {
@@ -88,11 +86,23 @@ public class DetailFunctionFragment extends BasePayDialogFragment {
         if ("支付宝支付".equals(title)) {////现在支付支付宝
 
             ali_pay = payWayInfo.getName();
-            pay_way = ALI_PAY;
 
-            if (name.equals(PayConfig.PAY_WAY_ALIPAY)) {//支付宝
+            if (!name.equals(PayConfig.PAY_WAY_NOWPAY_ALI)) {//支付宝
                 ali_nowway_type = "";
             }
+        } else if ("微信支付".equals(title)) {
+            wx_pay = payWayInfo.getName();
+            if (!name.equals(PayConfig.PAY_WAY_NOWPAY_WX)) {//小小贝微信
+                wx_nowway_type = "";
+            }
+
+            isWxPay = true;
+        }
+
+        if (isWxPay) {
+            btnWxpay.setBackgroundResource(R.drawable.wx_bg);
+        } else {
+            btnWxpay.setBackgroundResource(R.drawable.wx_bg_enable);
         }
 
         iPayAbs = new I1PayAbs(getActivity(), PayImplFactory.createPayImpl(getActivity(), ali_pay),
@@ -114,7 +124,7 @@ public class DetailFunctionFragment extends BasePayDialogFragment {
 
             String realPrice = vipItemInfo.getReal_price();
             String price = vipItemInfo.getPrice();
-            final String pjName = vipItemInfo.getTitle() + GoagalInfo.channelInfo.agent_id;
+            final String pjName = vipItemInfo.getTitle() + GoagalInfo.agent_id;
 
             tvFunction.setText(pjName);
             tvDetailPrice.setText(price);
@@ -143,7 +153,13 @@ public class DetailFunctionFragment extends BasePayDialogFragment {
                 }
                 break;
             case R.id.btn_wxpay:
-                ToastUtil.showToast(getContext(), "微信支付暂不支持，请选择支付宝", Toast.LENGTH_SHORT, Gravity.CENTER);
+                if (isWxPay) {
+                    if (listener != null && iPayAbs != null) {
+                        listener.onPayWX(iPayAbs, wx_pay, wx_nowway_type);
+                    }
+                } else {
+                    ToastUtil.showToast(getContext(), "微信支付暂不支持，请选择支付宝", Toast.LENGTH_SHORT, Gravity.CENTER);
+                }
                 break;
         }
 
@@ -159,4 +175,6 @@ public class DetailFunctionFragment extends BasePayDialogFragment {
     public void setListener(onPayListener listener) {
         this.listener = listener;
     }
+
+
 }

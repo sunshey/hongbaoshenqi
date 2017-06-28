@@ -104,7 +104,6 @@ public class VIPActivity extends BaseActivity {
         super.onResume();
         if (IPayImpl.uiPayCallback != null && IPayImpl.uOrderInfo != null && IWXH5PayImpl.isGen()) {
             IWXH5PayImpl.checkOrder(IPayImpl.uOrderInfo, IPayImpl.uiPayCallback);
-
         }
     }
 }

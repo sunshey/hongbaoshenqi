@@ -19,10 +19,6 @@ public class PayConfig {
     public static final String privateKey = "MIICWwIBAAKBgQCnF5TSOBG7hBYC+WQ0jk+bTB9ld1ozWSVRSrsxl67gX1Z60QXIeQ7Mq8M5yMZ7BBiiiS5ZGf3KjQ9k1JzXlelV58rqa4kn8MZCsWsHU6KSPtmGJEKNGM5JkchRI9cgPWgjP8X1oPyHN/IB2eqiHhYxSVLt2ZQNIjartW2nQWRUfwIDAQABAoGAMvVjIrWM2uZOnDuYztpz9sXBcX1z2eMfGWq0Kky7PZx10GD85YXd+JeNo4rS1WOLa85wfyYJG4PnpPWem7URgu3glvyz5+/eVFyLjLpJrV8e0aMWSc0lGseZeH4hyzyLt3dUX4PhCt//um6zbxg43VLWAhtXDca5rhBqpkmsE/kCQQDhO5JiEZaCBYCodtlZ2bpDlH1RMi43rKuNlAEKEgNdzsRoArPiVI0n2OYmtfG9GYRNdQ3q29jWg3MjJUmNWccVAkEAverSm+Fh3Yqjy87aRoBQgq1FkBCGl61BLDOYLZ6EPr1s/tSGQNU0xpVX61VncJnTroAKq18OjWnr8B7BbL7SQwJAGdc62TOJYAt/klRoZW2ceCpuIkWulcaivBCR+fTNHBMf54r/1mS6+SpiZWiUfoyR6E0YtqxYeWwFZq/de3EkbQJADnCnWNDXNxgOgjWVJR0mgfkYu+51vVygAvNdU8KkvXx7qBiSqKVNYPgD+lHBDq+zh6YWqZcNrTTripNcE5+irwJAQvaWwbEmPNGak2MY5V5DY8eLX6PGk1TUW1NL5A15wdH2K1P1xxMmgkyzbbAGtRcMPuEpj3zlQV1/NDTXamfxFg==";
     public static final String publicKey = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCMdJgWVcklxt7i5W6yjBKqjK6kH9sAfz6OUs2u9UVyEjbY3esDXXb3YJpDQnRianeFJ+g9a93Cby24tPzcI0KnyfDgdkPjGdNQmFOxch32Rw0WEOlVk/5exVJTx7NKu1MJqqyZaTTlG2RfARWdaKIV/9gjtn0mOWmUMSZYmm0u9QIDAQAB";
 
-    public static final int waresid = 1;
-    public static final int waresid2 = 2;
-    public static final int waresid3 = 3;
-    public static final int waresid4 = 4;
 
     public static final int PAY_TYPE_CONSUME = 0;//支付类型 0 消费
     public static final int PAY_TYPE_EXCEPTIONAL = 1;//支付类型 1打赏
@@ -35,6 +31,8 @@ public class PayConfig {
     public static final String PAY_WAY_WXPAY = "wxpay";//微信支付
     public static final String PAY_WAY_H5WXPAY = "ipaynowh5";//H5微信支付
     public static final String PAY_WAY_XXPAY = "xxpay";//小小贝微信支付
+    public static final String PAY_WAY_SPWXPAY = "spwxpay";//扬扬微信支付
+
 
     public static final String NOWPAY_WX = 13 + "";//现在支付微信支付
     public static final String NOWPAY_ALI = 12 + "";//现在支付支付宝支付

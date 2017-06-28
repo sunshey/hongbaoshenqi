@@ -234,7 +234,6 @@ public class MainActivityNew extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
-
         updateStatus();
         if (isFirst)
             getData();

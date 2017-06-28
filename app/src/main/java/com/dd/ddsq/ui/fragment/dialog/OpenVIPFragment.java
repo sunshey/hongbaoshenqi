@@ -48,6 +48,8 @@ public class OpenVIPFragment extends BasePayDialogFragment {
     TextView tvDiscountMoney;
     @BindView(R.id.tv_discount)
     TextView tvDiscount;
+    @BindView(R.id.rl_discount)
+    RelativeLayout rlDiscount;
 
 
     private int pay_way = 1;//选择支付方式
@@ -85,11 +87,10 @@ public class OpenVIPFragment extends BasePayDialogFragment {
         super.initData();
         if (getArguments() != null) {
             vipItemInfo = (VipItemInfo) getArguments().getSerializable("vipItemInfo");
-//            LogUtil.msg(vipItemInfo.toString());
 
-            final String realPrice = vipItemInfo.getReal_price();
+            String realPrice = vipItemInfo.getReal_price();
             String price = vipItemInfo.getPrice();
-            final String pjName = vipItemInfo.getTitle() + GoagalInfo.channelInfo.agent_id;
+            String pjName = vipItemInfo.getTitle() + GoagalInfo.agent_id;
 
             tvVipFunction.setText(pjName);
             tvVipMoney.setText(String.format(getResources().getString(R.string.money), realPrice));
@@ -110,22 +111,20 @@ public class OpenVIPFragment extends BasePayDialogFragment {
         String name = payWayInfo.getName();
         String title = payWayInfo.getTitle();
 
-        if ("支付宝支付".equals(title)) {////现在支付支付宝
+        if ("支付宝支付".equals(title)) {//支付宝
             rlAlipay.setVisibility(View.VISIBLE);
             viewAli.setVisibility(View.VISIBLE);
             ali_pay = payWayInfo.getName();
             pay_way = ALI_PAY;
             isAliVisable = true;
-            if (name.equals(PayConfig.PAY_WAY_ALIPAY)) {//支付宝
+            if (!name.equals(PayConfig.PAY_WAY_NOWPAY_ALI)) {//现在支付支付宝
                 ali_nowway_type = "";
             }
-        } else if ("微信支付".equals(title)) {//现在支付微信
+        } else if ("微信支付".equals(title)) {//微信
             rlWxpay.setVisibility(View.VISIBLE);
             viewWx.setVisibility(View.VISIBLE);
             wx_pay = payWayInfo.getName();
-            if (name.equals(PayConfig.PAY_WAY_WXPAY) ||//微信
-                    name.equals(PayConfig.PAY_WAY_H5WXPAY) ||//h5微信
-                    name.equals(PayConfig.PAY_WAY_XXPAY)) {//小小贝微信
+            if (!name.equals(PayConfig.PAY_WAY_NOWPAY_WX)) {//现在支付微信
                 wx_nowway_type = "";
             }
 
@@ -159,11 +158,13 @@ public class OpenVIPFragment extends BasePayDialogFragment {
                 ivAlipaySelector.setImageDrawable(getResources().getDrawable(R.drawable.pay_select_press));
                 ivWxpaySelector.setImageDrawable(getResources().getDrawable(R.drawable.pay_select_normal));
                 pay_way = ALI_PAY;
+                setDiscount(true);
                 break;
             case R.id.rl_wxpay:
                 ivWxpaySelector.setImageDrawable(getResources().getDrawable(R.drawable.pay_select_press));
                 ivAlipaySelector.setImageDrawable(getResources().getDrawable(R.drawable.pay_select_normal));
                 pay_way = WX_PAY;
+                setDiscount(false);
                 break;
             case R.id.btn_confirm_pay:
 
@@ -199,5 +200,16 @@ public class OpenVIPFragment extends BasePayDialogFragment {
         this.listener = listener;
     }
 
+
+    public void setDiscount(boolean isAli) {
+        if (isAli) {
+            rlDiscount.setVisibility(View.VISIBLE);
+            tvVipMoney.setText(String.format(getResources().getString(R.string.money), vipItemInfo.getReal_price()));
+            tvDiscountMoney.setText(String.format(getResources().getString(R.string.discount_money), Float.parseFloat(vipItemInfo.getPrice())));
+        } else {
+            rlDiscount.setVisibility(View.GONE);
+            tvVipMoney.setText(String.format(getResources().getString(R.string.money), vipItemInfo.getPrice()));
+        }
+    }
 
 }

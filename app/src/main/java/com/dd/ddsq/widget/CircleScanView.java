@@ -106,7 +106,7 @@ public class CircleScanView extends View {
 
     // 绘制旋转的扇形
     private void canvasArc(Canvas canvas) {
-        canvas.drawArc(mRectF, 0, startAngle, true, mPaint2);
+        canvas.drawArc(mRectF, startAngle, 60, true, mPaint2);
 
     }
 

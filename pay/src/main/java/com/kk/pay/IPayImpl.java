@@ -6,6 +6,7 @@ import android.os.Handler;
 import android.view.KeyEvent;
 
 import com.kk.pay.other.LoadingDialog;
+import com.kk.pay.other.LogUtil;
 import com.kk.securityhttp.domain.ResultInfo;
 import com.kk.securityhttp.engin.HttpCoreEngin2;
 import com.kk.securityhttp.net.contains.HttpConfig;
@@ -40,7 +41,7 @@ public abstract class IPayImpl {
     public static String appid;
     protected Activity mContext;
 
-    public Handler mHandler=new Handler();
+    public Handler mHandler = new Handler();
 
     public IPayImpl(Activity context) {
         this.mContext = context;
@@ -56,7 +57,7 @@ public abstract class IPayImpl {
         return null;
     }
 
-    protected String get(String cStr, String dStr){
+    protected String get(String cStr, String dStr) {
         return cStr == null || cStr.isEmpty() ? dStr : cStr;
     }
 

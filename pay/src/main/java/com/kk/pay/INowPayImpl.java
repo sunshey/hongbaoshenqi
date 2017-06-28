@@ -60,8 +60,8 @@ public class INowPayImpl extends IPayImpl {
 //        String wx_sign = mKey;
 
         String preSignStr = preSign.generatePreSignMessage();
-        final String needcheckmsg = preSignStr + "&" + "mhtSignature="
-                + Md5.md5(preSignStr + "&" + Md5.md5(wx_sign)) + "&mhtSignType=MD5";// 0nqIDgkOnNBD6qoqO5U68RO1fNqiaisg
+//        final String needcheckmsg = preSignStr + "&" + "mhtSignature="
+//                + Md5.md5(preSignStr + "&" + Md5.md5(wx_sign)) + "&mhtSignType=MD5";// 0nqIDgkOnNBD6qoqO5U68RO1fNqiaisg
 
         String mhtSignature = preSignStr + "&mhtSignature=" + wx_sign
                 + "&mhtSignType=MD5";
