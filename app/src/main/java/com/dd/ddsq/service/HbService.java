@@ -240,6 +240,7 @@ public class HbService extends AccessibilityService {
                             delayTime = 0;
                         } else {
                             delayTime = 2000;
+
                         }
                         mHandler.postDelayed(new Runnable() {
                             @Override

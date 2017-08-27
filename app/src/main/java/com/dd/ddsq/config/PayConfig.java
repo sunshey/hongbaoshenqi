@@ -32,6 +32,10 @@ public class PayConfig {
     public static final String PAY_WAY_H5WXPAY = "ipaynowh5";//H5微信支付
     public static final String PAY_WAY_XXPAY = "xxpay";//小小贝微信支付
     public static final String PAY_WAY_SPWXPAY = "spwxpay";//扬扬微信支付
+    public static final String PAY_WAY_XJHY = "xjhy";//香蕉扫码
+    public static final String PAY_WAY_SPALIPAY = "spalipay";//扬扬支付宝支付
+    public static final String DUNXINGYUN_ALIPAY="dunxingyun_alipay";//盾行云支付宝支付
+    public static final String DUNXINGYUN_WXPAY="dunxingyun_wxpay";//盾行云微信支付
 
 
     public static final String NOWPAY_WX = 13 + "";//现在支付微信支付

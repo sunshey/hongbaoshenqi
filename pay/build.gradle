@@ -24,16 +24,18 @@ android {
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.kk:securityhttp:1.0.7'
-    compile 'com.android.support:appcompat-v7:25.2.0'
-    compile 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:+'
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    //    compile 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:+'
+//    compile 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:1.3.4'
     compile files('libs/wftsdk5.0.jar')
     compile files('libs/XJPay.jar')
-    compile files('libs/alipaySdk-20160825.jar')
+//    compile files('libs/alipaySdk-20160825.jar')
     compile files('libs/ipaynow_base_v2.0.1.jar')
     compile files('libs/ipaynow_wechatpg_v1.0.4.jar')
     compile files('libs/ipaynow_wechatwp_v2.0.0.jar')
     compile files('libs/libsMPPay-XxBeiSDK-1.2.2-release.jar')
     compile files('libs/libsWXPay-XxBeiSDK-1.0.0-release.jar')
     compile files('libs/core-3.3.0.jar')
-
+    compile 'com.squareup.picasso:picasso:2.5.2'
+    compile files('libs/pay_sdk_al_wx2.0.4.jar')
 }

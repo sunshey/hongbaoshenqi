@@ -3,6 +3,7 @@ package com.dd.ddsq.widget;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.graphics.Path;
 import android.support.v7.widget.AppCompatTextView;
 import android.util.AttributeSet;
 
@@ -14,6 +15,8 @@ import com.dd.ddsq.util.UIUtils;
  */
 
 public class MyTextView extends AppCompatTextView {
+    Path path ;
+
     public MyTextView(Context context) {
         super(context);
     }
@@ -25,6 +28,7 @@ public class MyTextView extends AppCompatTextView {
 
     public MyTextView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        path =new Path();
     }
 
     @Override

@@ -8,17 +8,19 @@ android {
         applicationId "com.dd.ddsq"
         minSdkVersion 17
         targetSdkVersion 22
-        versionCode 25
-        versionName "1.5.3"
+        versionCode 28
+        versionName "1.5.6"
         testInstrumentationRunner "android.support.preferences.runner.AndroidJUnitRunner"
     }
     buildTypes {
         release {
+            buildConfigField("boolean", "LOG_DEBUG", "false")
             minifyEnabled false
             signingConfig signingConfigs.debug
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         debug {
+            buildConfigField("boolean", "LOG_DEBUG", "true")
             minifyEnabled false
             signingConfig signingConfigs.debug
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
@@ -26,6 +28,13 @@ android {
     }
     signingConfigs {
         debug {
+            storeFile file('key.jks')
+//            storeFile file("yhzm.keystore")
+            storePassword "154595"
+            keyAlias "fy"
+            keyPassword "154595"
+        }
+        release {
             storeFile file('key.jks')
 //            storeFile file("yhzm.keystore")
             storePassword "154595"
@@ -51,23 +60,18 @@ dependencies {
     compile 'com.android.support:appcompat-v7:25.2.0'
     compile 'com.jakewharton:butterknife:8.6.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.6.0'
-    compile 'com.android.support:recyclerview-v7:25.2.0'
+    compile 'com.android.support:recyclerview-v7:25.3.1'
     compile 'com.umeng.analytics:analytics:latest.integration'
     compile 'com.alibaba:fastjson:1.2.16'
-
     compile files('libs/umeng_shareboard_widget.jar')
     compile files('libs/umeng_social_api.jar')
     compile files('libs/umeng_social_net.jar')
     compile files('libs/umeng_social_shareboard.jar')
     compile files('libs/umeng_social_tool.jar')
     compile 'com.squareup.okhttp3:okhttp:3.6.0'
-
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile files('libs/eventbus-3.0.0.jar')
-
-    compile 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:+'
+    //    compile 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:+'
     compile project(':pay')
-
     compile 'com.mylib:comm-recyclviewadapter:1.0.9'
-
 }

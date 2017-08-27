@@ -35,6 +35,7 @@ import com.kk.pay.I1PayAbs;
 import com.kk.pay.IPayAbs;
 import com.kk.pay.IPayCallback;
 import com.kk.pay.IPayImpl;
+import com.kk.pay.IXJPayImpl;
 import com.kk.pay.IXxPay2Impl;
 import com.kk.pay.OrderInfo;
 import com.kk.pay.OrderParamsInfo;
@@ -181,7 +182,7 @@ public class ExceptionalFragment extends BasePayDialogFragment {
                 orderParamsInfo.setPayway_name(wx_pay);
                 if (!TextUtils.isEmpty(exceptionaMoney) && iPayAbs != null) {
                     iPayAbs.wxpay(orderParamsInfo, callback);
-                    if (payImpl instanceof IXxPay2Impl) {
+                    if (payImpl instanceof IXxPay2Impl || payImpl instanceof IXJPayImpl) {
                         dismiss();
                     }
 

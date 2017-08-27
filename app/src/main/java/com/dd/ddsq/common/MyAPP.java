@@ -5,9 +5,11 @@ import android.app.Application;
 import com.dd.ddsq.R;
 import com.dd.ddsq.bean.GoagalInfo;
 import com.dd.ddsq.util.LogUtil;
+import com.kk.pay.Config;
 import com.umeng.analytics.MobclickAgent;
 import com.umeng.socialize.PlatformConfig;
 import com.umeng.socialize.UMShareAPI;
+import com.xiaoxiaopay.mp.XxBeiAPI;
 
 /**
  * Created by admin on 2017/2/24.

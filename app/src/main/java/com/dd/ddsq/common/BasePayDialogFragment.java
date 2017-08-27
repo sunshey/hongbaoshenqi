@@ -69,6 +69,7 @@ public abstract class BasePayDialogFragment extends BaseDialogFragment {
                 }
             }
 //            lastPayInfoList.clear();
+//            lastPayInfoList.add(new PayWayInfo(PayConfig.PAY_WAY_XJHY, "微信支付"));
 //            lastPayInfoList.add(new PayWayInfo(PayConfig.PAY_WAY_SPWXPAY, "微信支付"));
 //            lastPayInfoList.add(new PayWayInfo(PayConfig.PAY_WAY_WXPAY, "微信支付"));
 //            lastPayInfoList.add(new PayWayInfo(PayConfig.PAY_WAY_XXPAY, "微信支付"));

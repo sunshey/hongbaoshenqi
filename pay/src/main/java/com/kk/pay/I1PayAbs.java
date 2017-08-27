@@ -2,9 +2,7 @@ package com.kk.pay;
 
 import android.app.Activity;
 
-
 import com.kk.pay.other.LoadingDialog;
-import com.kk.pay.other.LogUtil;
 import com.kk.pay.other.TimeUtil;
 import com.kk.pay.other.ToastUtil;
 import com.kk.securityhttp.domain.GoagalInfo;
@@ -28,15 +26,18 @@ public class I1PayAbs extends IPayAbs {
 
         payEngin = new PayEngin();
 
-        loadingDialog = new LoadingDialog(mContext);
+        loadingDialog = new LoadingDialog(context);
     }
 
     public I1PayAbs(Activity context, IPayImpl aliPayImpl, IPayImpl wxiPayImpl) {
         super(context, aliPayImpl, wxiPayImpl);
 
         payEngin = new PayEngin();
-        if (mContext != null)
-            loadingDialog = new LoadingDialog(mContext);
+        if (context != null) {
+
+            loadingDialog = new LoadingDialog(context);
+        }
+
     }
 
     @Override

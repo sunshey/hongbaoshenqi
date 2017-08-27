@@ -1,7 +1,10 @@
 package com.kk.pay.other;
 
 import android.app.DialogFragment;
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.ComponentName;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -13,11 +16,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.zxing.WriterException;
 import com.kk.pay.IPayCallback;
 import com.kk.pay.IPayImpl;
-import com.kk.pay.IXJPayImpl;
 import com.kk.pay.OrderInfo;
 import com.kk.pay.R;
 import com.kk.pay.XjInfo;
@@ -27,25 +31,25 @@ import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.Serializable;
 
 /**
  * Created by wanglin  on 2017/6/1 11:51.
  */
 
-public class PayCodeFragment extends DialogFragment {
+public class PayCodeFragmentNew extends DialogFragment {
 
     private Bitmap bitmap;
     private OrderInfo oderInfo;
     private IPayCallback ipaycallBack;
     private boolean ispay;
+    private TextView tvLink;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         getDialog().requestWindowFeature(Window.FEATURE_NO_TITLE);
         getDialog().setCancelable(false);
         getDialog().setCanceledOnTouchOutside(false);
-        View view = inflater.inflate(R.layout.dialog_wxpay, null);
+        View view = inflater.inflate(R.layout.dialog_wxpay_new, null);
         initView(view);
 
         return view;
@@ -55,10 +59,12 @@ public class PayCodeFragment extends DialogFragment {
 
     private void initView(final View view) {
         ImageView iv = (ImageView) view.findViewById(R.id.iv_pay_code);
+        tvLink = (TextView) view.findViewById(R.id.tv_link);
         if (getArguments() != null) {
             XjInfo xjInfo = (XjInfo) getArguments().getSerializable("xjInfo");
             String code_img_url = xjInfo.getCode_img_url();
             Picasso.with(getActivity()).load(code_img_url).into(iv);
+            tvLink.setText(xjInfo.getCode_url());
             try {
                 Bitmap bitmap = QRCodeEncoder.encodeAsBitmap(xjInfo.getCode_url(), ScreenUtil.dip2px(getActivity(), 250), ScreenUtil.dip2px(getActivity(), 250));
                 setBitmap(bitmap);
@@ -87,22 +93,33 @@ public class PayCodeFragment extends DialogFragment {
                 return true;
             }
         });
+        tvLink.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                copyLink();
+
+            }
+
+        });
 
         view.findViewById(R.id.btn_save_code).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                copyLink();
                 pay();
             }
         });
-        view.findViewById(R.id.ll_introduce).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                IntroduceFragment introduceFragment = new IntroduceFragment();
-                introduceFragment.show(getFragmentManager(), null);
 
-            }
-        });
+    }
 
+
+    public void copyLink() {
+
+        ClipboardManager manager = (ClipboardManager) getActivity().getSystemService(Context.CLIPBOARD_SERVICE);
+//        manager.setText(tvLink.getText());
+        ClipData clipData = ClipData.newPlainText(tvLink.getText(), tvLink.getText());
+        manager.setPrimaryClip(clipData);
+        Toast.makeText(getActivity(), "支付链接已复制", Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -119,7 +136,7 @@ public class PayCodeFragment extends DialogFragment {
         intent.addCategory(Intent.CATEGORY_LAUNCHER);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
-        ToastUtil.toast3(getActivity(), "打开微信扫一扫，在页面右上角选择相册中的二维码");
+//        ToastUtil.toast3(getActivity(), "打开微信扫一扫，在页面右上角选择相册中的二维码");
         ispay = true;
 
     }

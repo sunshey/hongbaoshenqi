@@ -190,14 +190,14 @@ public class MainFunctionAdapterNew extends BaseAdapter<String> {
     }
 
 
-    private void openSVIP(int postion) {
+    private void openSVIP(int position) {
 
-        String vipitem = Encrypt.decode(SPUtils.getString(mContext, SPConstant.VIP_ITEM_KEY));
-        List<VipItemInfo> vipItemInfos = JSONObject.parseArray(vipitem, VipItemInfo.class);
+        String vipItem = Encrypt.decode(SPUtils.getString(mContext, SPConstant.VIP_ITEM_KEY));
+        List<VipItemInfo> vipItemInfos = JSONObject.parseArray(vipItem, VipItemInfo.class);
         if (vipItemInfos == null) {
-            getData(postion);
+            getData(position);
         } else {
-            show(vipItemInfos, postion);
+            show(vipItemInfos, position);
         }
 
     }

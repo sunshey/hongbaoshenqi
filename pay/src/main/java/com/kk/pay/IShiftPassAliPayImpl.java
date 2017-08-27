@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 
-import com.kk.pay.other.LoadingDialog;
 import com.kk.pay.other.LogUtil;
 import com.kk.pay.other.ToastUtil;
 import com.switfpass.pay.thread.NetHelper;
@@ -21,16 +20,13 @@ import java.util.Random;
  * Created by zhangkai on 2017/6/26.
  */
 
-public class IShiftPassPayImpl extends IPayImpl {
+public class IShiftPassAliPayImpl extends IPayImpl {
 
-    public static String url = "http://pay.ideanin.com/gateway/";
 
-    public IShiftPassPayImpl(Activity context) {
+    public IShiftPassAliPayImpl(Activity context) {
         super(context);
-        loadingDialog = new LoadingDialog(context);
-//        isGen = true;
+        isGen = true;
     }
-
 
     @Override
     public void pay(final OrderInfo orderInfo, final IPayCallback iPayCallback) {
@@ -38,35 +34,33 @@ public class IShiftPassPayImpl extends IPayImpl {
             ToastUtil.toast2(mContext, "支付失败");
             return;
         }
-
         final PayInfo payInfo = orderInfo.getPayInfo();
         final Map<String, String> params = new HashMap<>();
-        params.put("service", "pay.weixin.wappay");
-        params.put("sign_type", "MD5");
-        params.put("mch_id", payInfo.getMerchantID());//666777888001    904170629809
+        params.put("service", "pay.alipay.native");
+        params.put("mch_id", get(payInfo.getMerchantID(), "904170629809"));
         params.put("out_trade_no", orderInfo.getOrder_sn());
         params.put("body", orderInfo.getName());
+        params.put("mch_create_ip", get(payInfo.getIp(), "127.0.0.1"));
 
-        BigDecimal price = new BigDecimal(orderInfo.getMoney() * 100 + "");
+        BigDecimal price = new BigDecimal(orderInfo.getMoney() * 100);
+        params.put("sign_type", "MD5");
 
         params.put("total_fee", price.intValue() + "");
         params.put("notify_url", payInfo.getNotify_url());
-        params.put("mch_app_name", "扬扬助手");
-        params.put("mch_app_id", "com.kk.pay");
         params.put("nonce_str", randNonce());
-        params.put("device_info", "AND_WAP");
-        params.put("mch_create_ip", payInfo.getIp());
-        params.put("callback_url",payInfo.getCallback_url());
         StringBuilder buf = new StringBuilder((params.size() + 1) * 10);
         SignUtils.buildPayParams(buf, params, false);
-        String sign = MD5.md5s(buf.toString() + "&key=" + payInfo.getKey()).toUpperCase();
+        String sign = MD5.md5s(buf.toString() + "&key=" + get(payInfo.getKey(), "017e28785e1f4b3896e7e4c3fc78babc")).toUpperCase();
         params.put("sign", sign);
 
         new Thread(new Runnable() {
             @Override
             public void run() {
                 LogUtil.msg("params  " + XmlUtils.toXml(params));
-                String result = NetHelper.getInstance().HttpPost(payInfo.getReturn_url(), XmlUtils.toXml(params));
+                String result = NetHelper.getInstance().HttpPost(get(payInfo.getReturn_url(), "http://pay.shiftpass.cn/gateway/"),
+                        XmlUtils
+                                .toXml
+                                        (params));
                 final HashMap mapResult = XmlUtils.parse(result);
                 LogUtil.msg("result  " + result);
                 if (mapResult != null && "0".equals(mapResult.get("status")) && "0".equals(mapResult.get("result_code"))) {
@@ -76,7 +70,7 @@ public class IShiftPassPayImpl extends IPayImpl {
                             try {
                                 Intent intent = new Intent();
                                 intent.setAction(Intent.ACTION_VIEW);
-                                intent.setData(Uri.parse(mapResult.get("pay_info").toString()));
+                                intent.setData(Uri.parse(mapResult.get("code_url").toString()));
                                 mContext.startActivity(intent);
                                 IPayImpl.uiPayCallback = iPayCallback;
                                 IPayImpl.uOrderInfo = orderInfo;
@@ -97,6 +91,5 @@ public class IShiftPassPayImpl extends IPayImpl {
     private String randNonce() {
         return new Random().nextInt(1000000000) + "";
     }
-
 
 }

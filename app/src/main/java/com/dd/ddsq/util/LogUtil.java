@@ -2,13 +2,15 @@ package com.dd.ddsq.util;
 
 import android.util.Log;
 
+import com.dd.ddsq.BuildConfig;
+
 /**
  * 日志输出类
  *
  * @author zhangkai
  */
 public class LogUtil {
-    public static boolean DEBUG = true;
+    public static boolean DEBUG = BuildConfig.LOG_DEBUG;
 
     private static final int LEVEL = 2;// 日志输出级别
     private static final int V = 0;

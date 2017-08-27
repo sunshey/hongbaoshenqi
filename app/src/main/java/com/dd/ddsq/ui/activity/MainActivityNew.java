@@ -41,7 +41,6 @@ import com.dd.ddsq.service.HbService;
 import com.dd.ddsq.ui.fragment.dialog.ExceptionalFragment;
 import com.dd.ddsq.ui.fragment.dialog.OpAsFragment;
 import com.dd.ddsq.ui.fragment.dialog.TwoButtonDialog;
-import com.dd.ddsq.util.AppNotificationDownload;
 import com.dd.ddsq.util.AppUpdateManager;
 import com.dd.ddsq.util.Encrypt;
 import com.dd.ddsq.util.LogUtil;
